@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:utip/widgets/person_counter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -111,21 +112,11 @@ class _UTipState extends State<UTip> {
                         'Split',
                         style: theme.textTheme.titleMedium,
                       ),
-                      Row(
-                        children: [
-                          IconButton(
-                              color: theme.colorScheme.primary,
-                              onPressed: decrement,
-                              icon: const Icon(Icons.remove)),
-                          Text(
-                            "$_personCount",
-                            style: theme.textTheme.titleMedium,
-                          ),
-                          IconButton(
-                              color: theme.colorScheme.primary,
-                              onPressed: increment,
-                              icon: const Icon(Icons.add)),
-                        ],
+                      PersonCounter(
+                        theme: theme,
+                        personCount: _personCount,
+                        onDecrement: decrement,
+                        onIncrement: increment,
                       )
                     ],
                   )
@@ -138,56 +129,3 @@ class _UTipState extends State<UTip> {
     );
   }
 }
-
-//class MyHomePage extends StatefulWidget {
- // const MyHomePage({super.key, required this.title});
-
- // final String title;
-
- // @override
- // State<MyHomePage> createState() => _MyHomePageState();
-//}
-
-//class _MyHomePageState extends State<MyHomePage> {
-  //int _counter = 0;
-
-  //void _incrementCounter() {
-    //setState(() {
-      //_counter++;
-    //});
-  //}
-
-  //@override
-  //Widget build(BuildContext context) {
-
-    //return Scaffold(
-      //appBar: AppBar(
-      
-        //backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-      
-        //title: Text(widget.title),
-      //),
-      //body: Center(
-      
-        //child: Column(
-        
-          //mainAxisAlignment: MainAxisAlignment.center,
-          //children: <Widget>[
-            //const Text(
-              //'You have pushed the button this many times:',
-            //),
-            //Text(
-              //'$_counter',
-              //style: Theme.of(context).textTheme.headlineMedium,
-            //),
-          //],
-        //),
-      //),
-      //floatingActionButton: FloatingActionButton(
-        //onPressed: _incrementCounter,
-        //tooltip: 'Increment',
-        //child: const Icon(Icons.add),
-      //),
-    //);
-  //}
-//}
